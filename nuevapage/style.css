@@ -1,0 +1,386 @@
+/* Importa la fuente Roboto desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Aplica a todos los elementos: elimina márgenes y rellenos, 
+define el modelo de caja y la fuente */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Garamond', sans-serif;
+}
+
+/* Estilo del cuerpo: centra el contenido usando Flexbox y aplica fondo */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #ffffff;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Estilos del encabezado: posición fija arriba, 
+con relleno y disposición en fila */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 99;
+  background: #073239;
+  font-size: 1.3em;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 99;
+  background: #073239;
+  font-size: 1.3em;
+}
+
+/* Estilo del logo del encabezado */
+.logo {
+  font-size: 2em;
+  color: #bdbaba;
+  user-select: none; /* evita que se seleccione el texto */
+}
+
+/* Estilos de los enlaces de navegación */
+.navigation a {
+  position: relative;
+  font-size: 1.1em;
+  color: #f1a523;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 40px;
+}
+
+/* Línea inferior animada en enlaces al pasar el mouse */
+.navigation a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 3px;
+  background:#bdbaba;
+  border-radius: 5px;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform .5s;
+}
+
+/* Animación al pasar el mouse sobre los enlaces */
+.navigation a:hover::after {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+/* Botón de login en la navegación */
+.navigation .btnLogin-popup {
+  width: 130px;
+  height: 50px;
+  background: transparent;
+  border: 2px solid #f1a523;
+  outline: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.0em;
+  color: #bdbaba;
+  font-weight: 500;
+  margin-left: 40px;
+  transition: .5s;
+}
+
+/* Cambio de color en hover del botón login */
+.navigation .btnLogin-popup:hover {
+  background: #bdbaba;
+  color: #000000;
+  font: #f1a523;
+}
+
+/* Contenedor principal del formulario (wrapper) */
+.wrapper {
+  position: relative;
+  width: 400px;
+  height: 440px;
+  background: #073239;
+  border: 2px solid rgba(255, 255, 255, .5);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+  display: flex;
+  justify-content: center;
+  transition: transform .5s ease, height .2s ease;
+  transform: scale(0); /* oculto por defecto */
+  overflow: hidden;
+}
+
+/* Cuando el wrapper tiene la clase active-popup, se muestra con escala normal */
+.wrapper.active-popup {
+  transform: scale(1);
+}
+
+/* Cuando el wrapper tiene clase active, aumenta su altura */
+.wrapper.active {
+  height: 520px;
+}
+
+/* Caja de formulario dentro del wrapper */
+.wrapper .form-box {
+  width: 100%;
+  padding: 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform .18s ease;
+}
+
+/* Formulario de login visible inicialmente */
+.wrapper .form-box.login {
+  transform: translateX(0);
+  z-index: 2;
+}
+
+/* Oculta el login cuando está activo (se desliza a la izquierda) */
+.wrapper.active .form-box.login {
+  transform: translateX(-400px);
+}
+
+/* Formulario de registro, oculto a la derecha inicialmente */
+.wrapper .form-box.register {
+  transform: translateX(400px);
+  z-index: 1;
+}
+
+/* Muestra el registro cuando está activo (se desliza al centro) */
+.wrapper.active .form-box.register {
+  transform: translateX(0);
+  z-index: 2;
+}
+
+/* Botón de cerrar (X) en la esquina del formulario */
+.wrapper .icon-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 45px;
+  height: 45px;
+  background-color: transparent;
+  font-size: 2em;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom-left-radius: 20px;
+  cursor: pointer;
+  z-index: 3;
+}
+
+/* Título del formulario */
+.form-box h2 {
+  font-size: 2em;
+  color: #bdbaba;
+  text-align: center;
+}
+
+/* Contenedor de cada campo de entrada */
+.input-box {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  border-bottom: 2px solid #052035;
+  margin: 30px 0;
+}
+
+/* Etiqueta del campo (placeholder animado) */
+.input-box label {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  font-size: 1em;
+  color: #000;
+  font-weight: 500;
+  pointer-events: none;
+  transition: .5s;
+}
+
+/* Cuando se enfoca o llena un campo, mueve la etiqueta hacia arriba */
+.input-box input:focus ~ label,
+.input-box input:valid ~ label {
+  top: -5px;
+}
+
+/* Campo de entrada */
+.input-box input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  color: #000;
+  font-weight: 600;
+  padding: 0 35px 0 5px;
+}
+
+/* Icono dentro del campo */
+.input-box .icon {
+  position: absolute;
+  right: 8px;
+  font-size: 1.2em;
+  color: #000;
+  line-height: 57px;
+}
+
+/* Contenedor de "recordar contraseña" y "olvidaste contraseña" */
+.remember-forgot {
+  font-size: 0.9em;
+  color: #fff;
+  font-weight: 500;
+  margin: 10px 0 15px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Personaliza el checkbox */
+.remember-forgot label input {
+  accent-color: #000;
+  margin-right: 3px;
+}
+
+/* Enlace para "olvidaste tu contraseña" */
+.remember-forgot a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Subrayado al pasar el mouse sobre el enlace */
+.remember-forgot a:hover {
+  text-decoration: underline;
+}
+
+/* Botón de enviar formulario */
+.btn {
+  width: 100%;
+  height: 45px;
+  background: #000000;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  color: #fff;
+  font-weight: 500;
+}
+
+/* Texto que permite cambiar entre login y registro */
+.login-register {
+  font-size: .9em;
+  color: #000;
+  text-align: center;
+  font-weight: 500;
+  margin: 25px 0 10px;
+}
+
+/* Enlace en el mensaje login/registro */
+.login-register p a {
+  color: #000;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Subrayado al pasar mouse sobre enlace */
+.login-register p a:hover {
+  text-decoration: underline;
+}
+
+/* Formulario de "olvidé mi contraseña", oculto inicialmente */
+.wrapper .form-box.forgot {
+  position: absolute;
+  transform: translateX(400px);
+  transition: none;
+}
+
+/* Oculta los formularios de login y registro cuando se muestra el de recuperación */
+.wrapper.show-forgot .form-box.login,
+.wrapper.show-forgot .form-box.register {
+  display: none;
+}
+
+/* Muestra el formulario de recuperación de contraseña */
+.wrapper.show-forgot .form-box.forgot {
+  transition: transform .18s ease;
+  transform: translateX(0);
+  display: block;
+}
+
+/* SECCIÓN DE INTRODUCCIÓN */
+.intro-section {
+  background-color: #fddd92;
+  padding: 130px 20px;
+  font-family: 'Segoe UI', sans-serif;
+  color: #073239;
+}
+
+.intro-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  
+}
+
+
+.intro-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.intro-text h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.intro-text p {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.intro-text small {
+  display: block;
+  margin-top: 30px;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.intro-image {
+  flex: 1;
+  min-width: 250px;
+  text-align: center;
+}
+
+.intro-image img {
+  max-width: 100%;
+  height: auto;
+}
+
