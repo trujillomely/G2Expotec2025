@@ -1,0 +1,51 @@
+.custom-nav-dropdown-toggle {
+  color: rgb(0, 0, 0) !important;
+  font-family: 'EB Garamond', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.custom-nav-dropdown-menu {
+  background-color: #ffffff !important; /* fondo oscuro tipo bg-secondary */
+  border: none !important;
+  font-family: 'EB Garamond', sans-serif;
+}
+
+.custom-nav-dropdown-item {
+  color: #18323f !important;
+  font-weight: 500;
+}
+
+.custom-nav-dropdown-item:hover,
+.custom-nav-dropdown-item:focus {
+  background-color: #ffffff !important; /* gris más claro en hover */
+  color: #000000 !important; /* amarillo Bootstrap para hover */
+}
+.custom-navbar {
+  background-color: #18323f !important; /* naranja */
+  font-family: 'Arial', sans-serif !important; /* tu tipo de letra */
+  color: rgb(0, 0, 0) !important; /* texto blanco */
+}
+
+.custom-navbar .nav-link {
+  color: #ffffff !important;
+}
+
+.custom-navbar .nav-link:hover {
+  color: #ffc107 !important; /* naranja claro al pasar mouse */
+}
+.m-0 text-white display-4 {
+  color: #ffc107 !important; /* naranja claro al pasar mouse */
+}
+.custom-highlight {
+  color: #f1a523 !important; /* Cambia este color según prefieras */
+  font-weight: bold;
+}
+/* Para las letras J y Q del logo en el header */
+.custom-navbar .highlight-primary {
+  color: #f1a523 !important; /* mismo color que en el footer */
+  font-weight: bold;
+}
+
+
+
