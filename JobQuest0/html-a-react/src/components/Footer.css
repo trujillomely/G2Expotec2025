@@ -1,0 +1,32 @@
+.mi-footer {
+  background-color: #18323f ; /* Cambia aquí el color de fondo que quieras */
+  color: black; /* Color del texto */
+  font-family: 'Arial', sans-serif; /* Cambia la fuente a la que tú prefieras */
+}
+
+/* Asegúrate que los enlaces también cambian */
+.mi-footer a {
+  color: black !important;
+  text-decoration: none;
+}
+
+/* Hover para enlaces */
+.mi-footer a:hover {
+  color: #444 !important; /* o el color que tú prefieras */
+}
+
+/* Para los íconos de redes sociales si son blancos u oscuros */
+.mi-footer .btn-outline-primary {
+  border-color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
+}
+
+.mi-footer .btn-outline-primary:hover {
+  background-color: rgb(255, 255, 255);
+  color: white;
+}
+
+/* Colores para íconos Font Awesome (los .text-primary) si quieres cambiarlos */
+.mi-footer .text-primary {
+  color: #f1a523 !important; /* o el color que tú quieras */
+}

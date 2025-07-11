@@ -1,0 +1,102 @@
+:root {
+  --dark: #18323f;
+  --hover-color: #f5a623; /* Naranja del fondo del formulario */
+  --text-color: #fff;
+  --accent: #f1a523;
+}
+
+/* Fondo general */
+.auth-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #002f36; /* fondo más oscuro */
+  padding: 20px;
+}
+
+/* Caja del formulario */
+.form-container {
+  background: var(--hover-color);
+  padding: 40px 30px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 450px;
+  display: none;
+}
+
+.form-container.active {
+  display: block;
+}
+
+.form-container h1,
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: var(--dark);
+  font-family: 'EB Garamond', serif;
+  font-weight: bold;
+}
+
+/* Etiquetas */
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+  color: var(--dark);
+}
+
+/* Campos de entrada */
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Checkbox */
+label input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+/* Botón principal */
+button[type="submit"] {
+  background-color: var(--dark);
+  color: var(--text-color);
+  border: none;
+  padding: 12px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+  background-color: #274a58;
+}
+
+/* Botones de enlace como texto */
+.link-button {
+  background: none;
+  border: none;
+  color: var(--dark);
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+  margin: 5px 0;
+}
+
+/* Centrado de texto */
+.text-center {
+  text-align: center;
+  margin-top: 15px;
+}

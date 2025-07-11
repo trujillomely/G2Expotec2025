@@ -1,0 +1,79 @@
+/* Dropdown Toggle (Texto del botón) */
+.custom-nav-dropdown-toggle {
+  color: #000000 !important;
+  font-family: 'EB Garamond', serif;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Menú desplegable */
+.custom-nav-dropdown-menu {
+  background-color: #ffffff !important; /* fondo blanco */
+  border: none !important;
+  font-family: 'EB Garamond', serif;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+}
+
+/* Ítems dentro del dropdown */
+.custom-nav-dropdown-item {
+  color: #18323f !important;
+  font-weight: 500;
+  padding: 10px 16px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.custom-nav-dropdown-item:hover,
+.custom-nav-dropdown-item:focus {
+  background-color: #fddd92 !important; /* amarillo suave al pasar mouse */
+  color: #18323f !important;
+}
+
+/* Navbar principal */
+.custom-navbar {
+  background-color: #18323f !important;
+  font-family: 'Arial', sans-serif !important;
+}
+
+/* Links normales en navbar */
+.custom-navbar .nav-link {
+  color: #ffffff !important;
+  font-weight: 500;
+  font-family: 'EB Garamond', serif;
+  transition: color 0.3s ease;
+}
+
+.custom-navbar .nav-link:hover {
+  color: #ffc107 !important; /* amarillo Bootstrap al pasar mouse */
+}
+
+.nav-bar {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+/* Fondo azul que se extiende por completo */
+.nav-background {
+  background-color: #18323f;
+  width: 100%;
+}
+
+
+/* Logo (JQ) personalizado */
+.custom-navbar .highlight-primary {
+  color: #f1a523 !important;
+  font-weight: bold;
+  font-family: 'EB Garamond', serif;
+}
+
+/* Resaltado general */
+.custom-highlight {
+  color: #f1a523 !important;
+  font-weight: bold;
+}
+
+/* Evita error: esta línea no debe existir porque no es clase real */
+.m-0.text-white.display-4 {
+  /* ❌ Esta combinación no es válida como selector CSS. Se elimina. */
+}
