@@ -1,102 +1,251 @@
+/* === VARIABLES GLOBALES === */
 :root {
-  --dark: #18323f;
-  --hover-color: #f5a623; /* Naranja del fondo del formulario */
-  --text-color: #fff;
-  --accent: #f1a523;
+  --primary: #3b82f6;
+  --primary-hover: #2563eb;
+  --success: #16a34a;
+  --error: #dc2626;
+
+  --bg-dark: #0f172a;
+  --bg-light: rgba(255, 255, 255, 0.06);
+  --bg-input: rgba(255, 255, 255, 0.1);
+
+  --text-light: #e2e8f0;
+  --text-muted: #94a3b8;
+
+  --shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  --radius: 16px;
+  --blur: 10px;
+  --transition: 0.3s ease;
+
+  --font-main: 'Segoe UI', sans-serif;
 }
 
-/* Fondo general */
+/* === CONTENEDOR GENERAL === */
 .auth-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: #002f36; /* fondo más oscuro */
+  background-color: #fff;
   padding: 20px;
+  font-family: var(--font-main);
 }
 
-/* Caja del formulario */
+/* === FORMULARIO === */
 .form-container {
-  background: var(--hover-color);
+  background: #18323f;
+  color: var(--text-light);
+  backdrop-filter: blur(var(--blur));
+  -webkit-backdrop-filter: blur(var(--blur));
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
   padding: 40px 30px;
-  border-radius: 10px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   width: 100%;
-  max-width: 450px;
+  max-width: 700px;
   display: none;
+  animation: fadeIn 0.4s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .form-container.active {
   display: block;
 }
 
-.form-container h1,
-.form-container h2 {
+/* === TITULOS === */
+h1, h2 {
   text-align: center;
   margin-bottom: 25px;
-  color: var(--dark);
-  font-family: 'EB Garamond', serif;
-  font-weight: bold;
+  font-size: 26px;
+  color: var(--text-light);
 }
 
-/* Etiquetas */
+/* === LABELS === */
 label {
-  font-weight: bold;
   display: block;
-  margin-bottom: 5px;
-  color: var(--dark);
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: var(--text-muted);
+  font-weight: 500;
 }
 
-/* Campos de entrada */
-input[type="email"],
-input[type="password"],
-input[type="text"] {
+/* === GRUPO DE INPUT CON ICONO === */
+.input-group {
+  position: relative;
+  margin-bottom: 18px;
+}
+
+.input-group input {
   width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
-  border: none;
-  border-radius: 6px;
+  padding: 12px 44px 12px 14px;
+  background-color: var(--bg-input);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
   font-size: 15px;
-  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.1);
+  color: var(--text-light);
+  transition: var(--transition);
 }
 
-/* Checkbox */
+.input-group.left-icon input {
+  padding-left: 44px;
+  padding-right: 14px;
+}
+
+.input-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px; /* Icono más grande */
+  color: var(--text-muted);
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.input-icon.right {
+  right: 12px;
+}
+
+.input-icon.left {
+  left: 12px;
+}
+
+/* === INPUT FOCUS === */
+input:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 0 2px var(--primary);
+}
+
+/* === CHECKBOX === */
 label input[type="checkbox"] {
   margin-right: 8px;
+  accent-color: var(--primary);
 }
 
-/* Botón principal */
+/* === BOTÓN PRINCIPAL === */
 button[type="submit"] {
-  background-color: var(--dark);
-  color: var(--text-color);
+  background-color: var(--primary);
+  color: white;
   border: none;
   padding: 12px;
-  border-radius: 5px;
+  border-radius: 12px;
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
   width: 100%;
-  margin-top: 10px;
+  transition: background-color var(--transition);
 }
 
 button[type="submit"]:hover {
-  background-color: #274a58;
+  background-color: var(--primary-hover);
 }
 
-/* Botones de enlace como texto */
+/* === BOTONES ENLACE === */
 .link-button {
   background: none;
   border: none;
-  color: var(--dark);
+  color: var(--primary);
   font-size: 14px;
   cursor: pointer;
   text-decoration: underline;
-  padding: 0;
   margin: 5px 0;
+  padding: 0;
 }
 
-/* Centrado de texto */
+/* === TEXTO CENTRADO === */
 .text-center {
   text-align: center;
-  margin-top: 15px;
+  margin-top: 20px;
+  font-size: 14px;
+  color: var(--text-light);
+}
+
+/* === NOTIFICACIONES TOAST === */
+.toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  padding: 14px 18px;
+  border-radius: 10px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 240px;
+  animation: slideIn 0.4s ease;
+  color: white;
+  box-shadow: var(--shadow);
+}
+
+.toast.success {
+  background-color: var(--success);
+}
+
+.toast.error {
+  background-color: var(--error);
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 18px;
+  margin-left: auto;
+  cursor: pointer;
+}
+
+/* === ANIMACIONES === */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 480px) {
+  .form-container {
+    padding: 30px 20px;
+  }
+
+  h1, h2 {
+    font-size: 22px;
+  }
+
+  input,
+  button[type="submit"] {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+
+  .toast {
+    top: 15px;
+    right: 15px;
+    min-width: 200px;
+    font-size: 13px;
+    padding: 12px 16px;
+  }
+
+  .text-center {
+    font-size: 13px;
+  }
+
+  .input-icon {
+    font-size: 18px;
+  }
 }
